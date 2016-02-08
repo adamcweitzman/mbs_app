@@ -14,10 +14,19 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 	console.log('in scope')
 
 	$scope.processForm = function() {
-		console.log('in form process')
-		$http.get('http://api.indeed.com/ads/apisearch?publisher=2878037053725137&q=java&l=austin%2C+tx&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=FJR&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2')
+		var data_array = [$scope.job_title, $scope.zipcode]
+		$http({
+			url: '/api',
+			method: 'POST',
+			withCredentials: true,
+			data: data_array,
+			dataType: 'jsonp',
+			headers: 'Access-Control-Allow-Origin'
+		})
  		.success(function(data) {
- 			console.log(data);
+ 			var data = data;
+ 			$scope.jobs_array = data.body.results
+ 			console.log($scope.jobs_array)
         })
 	};
 }]);

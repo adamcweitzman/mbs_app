@@ -12,9 +12,11 @@
     "debug": "^2.2.0",
     "ejs": "^2.3.4",
     "express": "^4.13.4",
+    "moment": "^2.11.2",
     "mongoose": "^4.4.2",
     "mongoose-ip-address": "0.0.6",
     "morgan": "^1.6.1",
+    "request": "^2.67.0",
     "serve-favicon": "^2.3.0"
   }
 }

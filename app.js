@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var db = require('./db');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var cors = require('cors')
 
 var app = express();
 
@@ -17,6 +18,7 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -57,6 +59,11 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
+});
+
+app.use(function($httpProvider) {
+    //Enable cross domain calls
+    $httpProvider.defaults.useXDomain = true;
 });
 
 

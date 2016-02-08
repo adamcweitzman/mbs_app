@@ -1,9 +1,16 @@
 <div class="container-fluid" ng-controller="MainController">
 	<div class="section">
-		<form class="form-inline text-center" role="form" ng-submit="processForm()">
+		<form class="form-inline text-center" role="form" name="form" ng-submit="processForm()">
 		  <input type="text" ng-model="job_title" class="form-control" name="job_title" id="job_title_input" placeholder="Job Title">
 		  <input type="text" ng-model="zipcode" class="form-control" name="zipcode" id="zip_input" placeholder="Zipcode">
 		  <button type="submit" class="btn btn-success">Search</button>
 		</form>
 	</div>
+	<div ng-repeat="job in jobs_array">
+		<h3>{{job.jobtitle}}</h3>
+		<h4>{{job.company}}</h4>
+		<h5>{{job.date}}</h5>
+		<p>{{job.snippet}}</p>
+	</div>
 </div>
+
