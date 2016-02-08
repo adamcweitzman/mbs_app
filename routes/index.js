@@ -10,16 +10,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/api',function(req, res, next) {
-	// var now = moment()
-	// var formatted = now.format('YYYY-MM-DD HH:mm:ss Z')
-	// console.log(formatted)
-	// var query = new Query({
-	// 	job_title: req.body[0],
-	// 	zipcode: req.body[1],
-	// })
-	// job.save(function(err) {
-	// 	if (err) throw err;
- //  	})
+	var now = moment()
+	var formatted = now.format('YYYY-MM-DD HH:mm:ss Z')
+	console.log(formatted)
+	var query = new Query({
+		job_title: req.body[0],
+		zipcode: req.body[1],
+		time: formatted
+	})
+	query.save(function(err) {
+		if (err) throw err;
+  	})
 	console.log(req.body)
 	request({
 		url: 'http://api.indeed.com/ads/apisearch?publisher=2878037053725137&q=' + req.body[0] + '&l=' + req.body[1] + '&sort=&radius=&st=&jt=&start=&limit=20&fromage=&filter=&latlong=1&co=us&chnl=FJR&format=json&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2',

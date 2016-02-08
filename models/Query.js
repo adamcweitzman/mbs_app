@@ -5,7 +5,7 @@ var querySchema = new mongoose.Schema({
   zipcode: Number,
   search_term: String,
   ip_address: String, 
-  time : { type : Date, default: Date.now }
+  time : String
 });
 
 
