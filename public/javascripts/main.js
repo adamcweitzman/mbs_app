@@ -1,6 +1,6 @@
 var app = angular.module('mbs_app',['ngRoute'])
 
-app.config(['$routeProvider', function($routeProvider) {
+app.config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider) {
 
 	$routeProvider
     .when('/', {
@@ -13,6 +13,8 @@ app.config(['$routeProvider', function($routeProvider) {
     	templateUrl: 'admin.html',
     	controller: 'MainController'
     })
+
+    $locationProvider.html5Mode(true);
 
 }]);
 
