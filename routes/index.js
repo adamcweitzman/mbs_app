@@ -16,7 +16,8 @@ router.post('/api',function(req, res, next) {
 	var query = new Query({
 		job_title: req.body[0],
 		zipcode: req.body[1],
-		time: formatted
+		time: formatted,
+		ip_address: req.ip
 	})
 	query.save(function(err) {
 		if (err) throw err;
