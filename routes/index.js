@@ -32,6 +32,13 @@ router.post('/api',function(req, res, next) {
 	})
 });
 
+router.get('/admin', function(req, res, next) {
+  res.render('admin');
+});
+
+
+
+
 //'http://api.indeed.com/ads/apisearch?publisher=2878037053725137&q=java&l=austin%2C+tx&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=FJR&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2'
 
 

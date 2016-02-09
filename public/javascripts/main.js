@@ -4,8 +4,14 @@ app.config(['$routeProvider', function($routeProvider) {
 
 	$routeProvider
     .when('/', {
+      url: '/',
       templateUrl: 'home.html',
       controller: 'MainController'
+    })
+    .when('/admin', {
+    	url: '/admin',
+    	templateUrl: 'admin.html',
+    	controller: 'MainController'
     })
 
 }]);
