@@ -3,6 +3,7 @@ var router = express.Router();
 var Query = require('../models/Query');
 var request = require('request');
 var moment = require('moment');
+var clientIp = require('client-ip')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,7 +18,7 @@ router.post('/api',function(req, res, next) {
 		job_title: req.body[0],
 		zipcode: req.body[1],
 		time: formatted,
-		ip_address: req.ip
+		ip_address: clientIp(req)
 	})
 	query.save(function(err) {
 		if (err) throw err;
