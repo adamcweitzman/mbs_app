@@ -36,7 +36,16 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
  			$scope.jobs_array = data.body.results
  			console.log($scope.jobs_array)
         })
-	};
+	}
+
+	$scope.login = function() {
+		console.log($scope.password)
+		$http({
+			url: '/admin',
+			method: 'POST',
+			data: [$scope.username, $scope.password]
+		})
+	}
 }]);
 
 // publisher=2878037053725137

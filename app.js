@@ -7,7 +7,8 @@ var bodyParser = require('body-parser');
 var db = require('./db');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var cors = require('cors')
+var cors = require('cors');
+var passport = require('passport-local');
 
 var app = express();
 

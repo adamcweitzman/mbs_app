@@ -3,7 +3,9 @@ var router = express.Router();
 var Query = require('../models/Query');
 var request = require('request');
 var moment = require('moment');
-var clientIp = require('client-ip')
+var clientIp = require('client-ip');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -35,7 +37,12 @@ router.post('/api',function(req, res, next) {
 });
 
 router.get('/admin', function(req, res, next) {
-  res.render('admin');
+    // passport.authenticate('local', { successRedirect: '/admin',
+    //                                failureRedirect: '/login',
+    //                                failureFlash: true })
+  Query.find(function(err, query) {
+  	res.json(query);
+  })
 });
 
 

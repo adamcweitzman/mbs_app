@@ -1,5 +1,15 @@
 <div class="container-fluid" ng-controller="MainController">
 	<div class="section">
+		<form class="form-inline text-center" role="form" name="login_form" ng-submit="login()">Admin Login
+	        <label>Username:</label>
+	        <input type="text" name="username" ng-model="username"/>
+	        <label>Password:</label>
+	        <input name="password" ng-model="password"/>
+	        <button type="submit" value="Log In">Login</button>
+		</form>
+	</div>
+
+	<div class="section">
 		<form class="form-inline text-center" role="form" name="form" ng-submit="processForm()">
 		  <input type="text" ng-model="job_title" class="form-control" name="job_title" id="job_title_input" placeholder="Job Title">
 		  <input type="text" ng-model="zipcode" class="form-control" name="zipcode" id="zip_input" placeholder="Zipcode">
